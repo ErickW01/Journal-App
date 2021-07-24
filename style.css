@@ -53,11 +53,12 @@ h1 {
   border: 1px solid black;
 }
 
-.journal h2 {
+.journal h2, .journal h3 {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: end;
 }
+
 .journal_submission {
   display: flex;
   justify-content: center;
@@ -70,4 +71,12 @@ h1 {
 .journal_submission input {
   width: 150px;
   height: 150px;
+}
+
+.return-nav {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }

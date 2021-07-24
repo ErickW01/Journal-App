@@ -1,9 +1,9 @@
 const submit_nav = document.getElementById("submit-nav")
 const feelings_nav = document.querySelector(".feelings")
 const entry = document.getElementById('journal-title')
-const journal_submit = document.getElementById('submit-btn')
-const feelings_div = document.getElementById("feelings-descriptions")
+const journal_submit_btn = document.getElementById('submit-btn')
 
+const feelings_div = document.getElementById("feelings-descriptions")
 const excited_btn = document.getElementById('Excited')
 const content_btn = document.getElementById('Content')
 const meh_btn = document.getElementById('Meh')
@@ -15,9 +15,15 @@ const journal = document.getElementById('journal')
 const journal_entry = document.getElementById('journal-text')
 const submit_entry = document.getElementById('journal-submit-btn')
 
+const return_nav = document.getElementById('return-nav')
+const make_entry_btn = document.getElementById('make-entry-btn')
+const review_btn = document.getElementById('return-to-feelings-btn')
+
+var mood_feeling = ""
+
 
 //Event listeners
-journal_submit.addEventListener('click', submitInput)
+journal_submit_btn.addEventListener('click', submitInput)
 
 excited_btn.addEventListener('click', mood)
 content_btn.addEventListener('click', mood)
@@ -28,25 +34,34 @@ angry_btn.addEventListener('click', mood)
 
 submit_entry.addEventListener('click', submitEntry)
 
+make_entry_btn.addEventListener('click', writeAnotherEntry)
+review_btn.addEventListener('click', reviewAllEntries)
+
+
 //Date
 const d = new Date();
 
 
 //Functions
+
 function submitInput(event) {
+    console.log("Within submitInput")
     event.preventDefault()
     console.log(entry.value)
     console.log(journal)
+    submit_nav.style.display = 'none'
     journal.style.display = 'flex'
     journal.childNodes[1].textContent = entry.value
     console.log(d.getMonth() + 1,d.getDate())
     journal.childNodes[3].textContent = String(d.getMonth() + 1) + "/" + String(d.getDate())
+    console.log(journal.childNodes[4])
 }
 
 function mood(event) {
     console.log("You clicked!")
     console.log(event.target.id)
 
+    mood_feeling = event.target.id
     feelings_div.style.display = 'none'
     submit_nav.style.display = 'flex'
 
@@ -75,6 +90,7 @@ function mood(event) {
     }
     console.log("Finished?")
     console.log(h1.textContent)
+
 } 
 
 function submitEntry(event) {
@@ -84,16 +100,35 @@ function submitEntry(event) {
     date = (String(d.getMonth() + 1) + "/" + String(d.getDate()) + "-" + String(d.getTime()))
     alert('Saved!')
     saveToJson(journal_entry.value, date)
+    journal.style.display = 'none'
+    return_nav.style.display = 'flex'
 }
 
 function saveToJson(entry) {
     console.log(entry)
-    var localEntry = {'date': date, 'entry':entry}
-    console.log(localEntry)
-    localStorage.setItem('userEntry', JSON.stringify(localEntry))
-    var user = JSON.parse(localStorage.getItem('userEntry'))
 
-    console.log(user)
+    let entries
+
+    if (localStorage.getItem('userEntry') === null) {
+        entries = []
+    } else {
+        entries = JSON.parse(localStorage.getItem('userEntry'))
+    }
+    console.log(entries.length)
+    var localEntry = {'mood': mood_feeling, 'entry-title': journal.childNodes[1].textContent,'date': date, 'entry':entry}
+    entries.push(localEntry)
+
+    localStorage.setItem('userEntry', JSON.stringify(entries))
+    console.log(localStorage.length)
 
 }
 
+function writeAnotherEntry(event) {
+    return_nav.style.display = 'none'
+    feelings_div.style.display = 'inline'
+}
+
+function reviewAllEntries(event) {
+    var entries = localStorage.getItem('userEntry')
+    console.log(entries)
+}
