@@ -56,7 +56,12 @@ function submitInput(event) {
     journal.childNodes[3].textContent = String(d.getMonth() + 1) + "/" + String(d.getDate())
     console.log(journal.childNodes[4])
 }
+function changeGradient(r1,g1,b1) {
+    console.log(document.body.style.backgroundColor)
+    document.body.style.background = 'rgb(' + [r1,g1,b1].join(',') +')'
+    console.log((document.body.style.backgroundColor))
 
+}
 function mood(event) {
     console.log("You clicked!")
     console.log(event.target.id)
@@ -71,21 +76,33 @@ function mood(event) {
     switch(event.target.id) {
         case 'Excited':
         h1.textContent = "Great to see that you're excited! Tell us about your day! Start with your journal title!"
+        changeGradient(219,212,72)
         break
+
         case 'Content':
         h1.textContent = "Being content is good. Tell us about your day. Start with your journal title."
+        changeGradient(52, 235, 216)
         break
+
         case 'Meh':
         h1.textContent = "Oh, interesting. How about you tell us about your day? Start with your journal title."
+        changeGradient(189, 139, 119)
         break
+
         case 'Sad':
             h1.textContent = "Oh, I'm sorry. I know its tough. How about we talk about your day? Let's start with a journal title"
+            changeGradient(32, 25, 107)
             break
+
         case 'Depressed':
             h1.textContent = "I'm sorry you're going through this. Would you like to journal your day? Start with a journal title"
+            changeGradient(7, 3, 51)
+
             break
+
         default:
             h1.textContent = "Oh wow! How about we tell us more? Lets start with a journal title"
+            changeGradient(148, 147, 163)
             break
     }
     console.log("Finished?")
