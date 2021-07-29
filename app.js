@@ -19,6 +19,8 @@ const return_nav = document.getElementById('return-nav')
 const make_entry_btn = document.getElementById('make-entry-btn')
 const review_btn = document.getElementById('return-to-feelings-btn')
 
+const review_entries = document.getElementById('previous-entries')
+
 var mood_feeling = ""
 
 
@@ -35,8 +37,10 @@ angry_btn.addEventListener('click', mood)
 submit_entry.addEventListener('click', submitEntry)
 
 make_entry_btn.addEventListener('click', writeAnotherEntry)
+
 review_btn.addEventListener('click', reviewAllEntries)
 
+//localStorage.clear()
 
 //Date
 const d = new Date();
@@ -91,12 +95,12 @@ function mood(event) {
 
         case 'Sad':
             h1.textContent = "Oh, I'm sorry. I know its tough. How about we talk about your day? Let's start with a journal title"
-            changeGradient(32, 25, 107)
+            changeGradient(130, 188, 250)
             break
 
         case 'Depressed':
             h1.textContent = "I'm sorry you're going through this. Would you like to journal your day? Start with a journal title"
-            changeGradient(7, 3, 51)
+            changeGradient(43, 135, 255)
 
             break
 
@@ -141,11 +145,44 @@ function saveToJson(entry) {
 }
 
 function writeAnotherEntry(event) {
+    review_entries.innerHTML = ""
     return_nav.style.display = 'none'
     feelings_div.style.display = 'inline'
+    
 }
 
 function reviewAllEntries(event) {
-    var entries = localStorage.getItem('userEntry')
-    console.log(entries)
+
+    review_entries.style.display = 'flex'
+    review_entries.style.alignItems = 'center'
+    review_entries.style.flexDirection = 'column'
+
+    let entries = JSON.parse(localStorage.getItem('userEntry'))
+  
+    //parse through json
+    for(var i = 0; i < entries.length;i++) {
+        var linode = document.createElement('div')
+        linode.id = 'past-entry# ' + String(i)
+        linode.style.border = '1px solid black'
+        linode.style.margin = '2px'
+        linode.style.padding = '10px'
+        linode.style.width = '80%'
+    
+
+        review_entries.appendChild(linode)
+
+        var obj = entries[i]
+
+        for (var key in obj) {
+            var node = document.createElement('p')
+
+            console.log("key: " + key)
+            var value = obj[key]
+            console.log("value : " + value)
+
+            node.innerHTML =  (String(key) + ": " + String(value))
+            linode.appendChild(node)
+        }
+    }
+
 }
