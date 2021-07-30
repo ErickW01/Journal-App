@@ -18,6 +18,7 @@ const submit_entry = document.getElementById('journal-submit-btn')
 const return_nav = document.getElementById('return-nav')
 const make_entry_btn = document.getElementById('make-entry-btn')
 const review_btn = document.getElementById('return-to-feelings-btn')
+const remove_entries = document.getElementById('remove-entries-btn')
 
 const review_entries = document.getElementById('previous-entries')
 
@@ -39,6 +40,7 @@ submit_entry.addEventListener('click', submitEntry)
 make_entry_btn.addEventListener('click', writeAnotherEntry)
 
 review_btn.addEventListener('click', reviewAllEntries)
+remove_entries.addEventListener('click', deleteAllEntries)
 
 //localStorage.clear()
 
@@ -60,13 +62,15 @@ function submitInput(event) {
     journal.childNodes[3].textContent = String(d.getMonth() + 1) + "/" + String(d.getDate())
     console.log(journal.childNodes[4])
 }
-function changeGradient(r1,g1,b1) {
+function changeGradient(newGradient) {
     console.log(document.body.style.backgroundColor)
-    document.body.style.background = 'rgb(' + [r1,g1,b1].join(',') +')'
-    console.log((document.body.style.backgroundColor))
+    document.body.style.background = newGradient
+    console.log((document.body.style.background))
 
 }
 function mood(event) {
+    console.log(document.body.style.background)
+
     console.log("You clicked!")
     console.log(event.target.id)
 
@@ -74,39 +78,39 @@ function mood(event) {
     feelings_div.style.display = 'none'
     submit_nav.style.display = 'flex'
 
+
     var h1 = submit_nav.childNodes[0]
     console.log(h1)
     console.log("Hitting here")
     switch(event.target.id) {
         case 'Excited':
         h1.textContent = "Great to see that you're excited! Tell us about your day! Start with your journal title!"
-        changeGradient(219,212,72)
+        changeGradient('linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)')
         break
 
         case 'Content':
         h1.textContent = "Being content is good. Tell us about your day. Start with your journal title."
-        changeGradient(52, 235, 216)
+        changeGradient('linear-gradient(to right, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%)')
         break
 
         case 'Meh':
         h1.textContent = "Oh, interesting. How about you tell us about your day? Start with your journal title."
-        changeGradient(189, 139, 119)
+        changeGradient('linear-gradient(to right, #cfd9df 0%, #e2ebf0 100%)')
         break
 
         case 'Sad':
             h1.textContent = "Oh, I'm sorry. I know its tough. How about we talk about your day? Let's start with a journal title"
-            changeGradient(130, 188, 250)
+            changeGradient('linear-gradient(to right, #a8edea 0%, #fed6e3 100%)')
             break
 
         case 'Depressed':
             h1.textContent = "I'm sorry you're going through this. Would you like to journal your day? Start with a journal title"
-            changeGradient(43, 135, 255)
-
+            changeGradient('linear-gradient(to right, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%)')
             break
 
         default:
             h1.textContent = "Oh wow! How about we tell us more? Lets start with a journal title"
-            changeGradient(148, 147, 163)
+            changeGradient('linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)')
             break
     }
     console.log("Finished?")
@@ -123,6 +127,9 @@ function submitEntry(event) {
     saveToJson(journal_entry.value, date)
     journal.style.display = 'none'
     return_nav.style.display = 'flex'
+
+    document.body.style.background = 'linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%)'
+
 }
 
 function saveToJson(entry) {
@@ -148,6 +155,7 @@ function writeAnotherEntry(event) {
     review_entries.innerHTML = ""
     return_nav.style.display = 'none'
     feelings_div.style.display = 'inline'
+
     
 }
 
@@ -185,4 +193,10 @@ function reviewAllEntries(event) {
         }
     }
 
+}
+
+function deleteAllEntries(event) {
+    localStorage.clear()
+    alert('Deleted Past Entries! Returning to Journal!')
+    writeAnotherEntry(event)
 }
