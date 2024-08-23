@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutUs() {
   return (
-    <main className="bg-neutral-600">
+    <main className="bg-slate-600">
       <div className="flex mx-auto">
         <div className="mx-auto place-self-center lg:col-span-7">
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
@@ -24,6 +24,7 @@ export default function AboutUs() {
           />
         </div>
       </div>
+      
       <div
         className="centralHero m-w-full m-h-full h-full"
         style={{
@@ -36,6 +37,27 @@ export default function AboutUs() {
           Literally Not Professionals <br /> Just One Guy
         </h1>
       </div>
+
+      <section className="bg-slate-600 dark:bg-gray-900">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+          <div className="mx-auto max-w-screen-sm text-center">
+            <h2 className="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-gray-900 dark:text-white">
+              Start your free trial today
+            </h2>
+            <p className="mb-6 font-light text-white-500 dark:text-gray-400 md:text-lg">
+              Try Write-It-Down for Forever. No credit card required.
+            </p>
+            <a
+              href="/login"
+              className="text-white bg-blue-600 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+            >
+              Free trial for Forever
+            </a>
+          </div>
+        </div>
+      </section>
+
+
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
           <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
@@ -211,7 +233,8 @@ export default function AboutUs() {
                 </h3>
                 <span className="text-gray-500 dark:text-gray-400">CTO</span>
                 <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
-                  Jesse drives the technical strategy at Write-It-Down, even though he was initially confused over the idea.
+                  Jesse drives the technical strategy at Write-It-Down, even
+                  though he was initially confused over the idea.
                 </p>
                 <ul className="flex space-x-4 sm:mt-0">
                   <li>
@@ -400,7 +423,8 @@ export default function AboutUs() {
                   Intern & Personality-Hire
                 </span>
                 <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
-                  John does nothing except make us groan in pain with his cheesy jokes.
+                  John does nothing except make us groan in pain with his cheesy
+                  jokes.
                 </p>
                 <ul className="flex space-x-4 sm:mt-0">
                   <li>
