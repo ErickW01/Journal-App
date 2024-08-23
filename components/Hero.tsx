@@ -15,10 +15,10 @@ export default function Hero() {
             Whether its your successes or your struggles,<br/>we&apos;re here to listen
           </p>
           <a
-            href="#"
+            href="/about-us"
             className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
           >
-            Let About Us
+            Learn About Us
             <svg
               className="w-5 h-5 ml-2 -mr-1"
               fill="currentColor"
@@ -33,7 +33,7 @@ export default function Hero() {
             </svg>
           </a>
           <a
-            href="#"
+            href="/login"
             className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white-500 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
           >
             Log In
