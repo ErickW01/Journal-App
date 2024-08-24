@@ -10,13 +10,13 @@ export default function ContactUs() {
             Want to Call Us?
           </h1>
           <p className="max-w-2xl mb-6 font-light text-gray-300 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-            Talk to our personality-hire!
+            Talk to our dedicated customer-service/microservices engineer, general LARPer, HEMA professional, and CPR-certified individual - Malcolm!
           </p>
         </div>
         <div className="">
           <Image
             className="rounded-lg"
-            src={"/images/me-drinking.jpg"}
+            src={"/images/me-baby.jpg"}
             alt={"mock"}
             width={500}
             height={200}

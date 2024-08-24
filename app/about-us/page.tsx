@@ -231,10 +231,10 @@ export default function AboutUs() {
                 <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
                   <a href="#">Jesse T.</a>
                 </h3>
-                <span className="text-gray-500 dark:text-gray-400">CTO</span>
+                <span className="text-gray-500 dark:text-gray-400">CTO & Back-end Developer</span>
                 <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">
                   Jesse drives the technical strategy at Write-It-Down, even
-                  though he was initially confused over the idea.
+                  though he was initially confused over the idea. Honestly, he&apos;s still confused.
                 </p>
                 <ul className="flex space-x-4 sm:mt-0">
                   <li>
