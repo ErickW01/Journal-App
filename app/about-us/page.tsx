@@ -1,4 +1,5 @@
 import Image from "next/image";
+import style from './page.module.scss'
 
 export default function AboutUs() {
   return (
@@ -12,27 +13,29 @@ export default function AboutUs() {
             But legally, we cannot. And this site is purely just for showcasing skills.
           </p>
         </div>
-        <div className="">
+        <div>
           <Image
-            className="rounded-lg"
+            className={`rounded-lg ${style["freePikImg"]}`}
             src={"/images/friends-speaking.jpg"}
             alt={"mock"}
             width={500}
             height={200}
             priority={true}
           />
+          <span className={`${style["freePikLabel"]}`}>Design from Freepik</span>
         </div>
       </div>
       
       <div
-        className="centralHero m-w-full m-h-full h-full"
+        className={`${style["freePikImg"]} m-w-full m-h-full h-full`}
         style={{
           backgroundImage: `url(${"/images/group-therapy.jpg"})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
       >
-        <div className={"opacity-55 bg-black"}>
+          <span className={`${style["freePikLabel"]}`}>Design from Freepik</span>
+          <div className={"opacity-55 bg-black"}>
         <h1 className="text-center pt-40 pb-40 font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-slate">
           Literally Not Professionals<br /> Just One Guy
         </h1>

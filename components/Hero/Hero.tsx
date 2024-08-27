@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
+import style from './hero.module.scss'
 
 export default function Hero() {
 
@@ -40,13 +40,14 @@ export default function Hero() {
           </a>
         </div>
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-          <Image className="h-auto max-w-lg rounded-lg"
+          <Image className={`${style["freePikImg"]} h-auto max-w-lg rounded-lg`}
            src={'/images/red-journal.jpg'}
           alt={'mock'}
           width={500}
           height={500}
           priority={true}
           />
+          <span className={`${style["freePikLabel"]}`}>Design from Freepik</span>
         </div>
       </div>
     </section>
