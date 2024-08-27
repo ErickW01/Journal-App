@@ -15,7 +15,7 @@ export default function ContactUs() {
             Malcolm!
           </p>
         </div>
-        <div className="">
+        <div>
           <Image
             className="rounded-lg"
             src={"/images/me-baby.jpg"}
