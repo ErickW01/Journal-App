@@ -5,7 +5,8 @@ export default function Journal() {
   return (
     <>
     <InputEntry/>
-    {/* <SearchEntries/> */}
+    <hr/>
+    <SearchEntries/>
     </>
   );
 }
