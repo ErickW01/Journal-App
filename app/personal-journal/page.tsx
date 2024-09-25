@@ -4,8 +4,8 @@ import InputEntry from "@/components/InputEntry";
 export default function Journal() {
   return (
     <>
-    <InputEntry/>
-    <hr/>
+    {/* <InputEntry/>
+    <hr/> */}
     <SearchEntries/>
     </>
   );
