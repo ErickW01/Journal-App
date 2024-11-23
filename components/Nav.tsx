@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import UserBtn from "./Btns/UserBtn";
 
 export default function Nav() {
   return (
@@ -14,7 +13,7 @@ export default function Nav() {
               </span>
             </a>
             <div className="flex items-center lg:order-2">
-              <UserBtn/>
+              <button>Log In</button>
               <button
                 data-collapse-toggle="mobile-menu-2"
                 type="button"
