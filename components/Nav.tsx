@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-
+import SignInBtn from "./Btn/SignInBtn";
 export default function Nav() {
   return (
     <div>
@@ -13,7 +13,7 @@ export default function Nav() {
               </span>
             </a>
             <div className="flex items-center lg:order-2">
-              <button>Log In</button>
+              <SignInBtn/>
               <button
                 data-collapse-toggle="mobile-menu-2"
                 type="button"
