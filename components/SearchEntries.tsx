@@ -9,8 +9,6 @@ interface IEntry {
 }
 
 export default async function SearchEntries() {
-  const client = await connect();
-  const data = await getEntries();
 
     return(
         <>

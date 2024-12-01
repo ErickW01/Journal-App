@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@vercel/postgres": "^0.10.0",
+    "axios": "^1.7.8",
     "better-auth": "^1.0.0",
     "better-sqlite3": "^11.5.0",
     "dotenv": "^16.4.5",
