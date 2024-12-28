@@ -27,10 +27,10 @@ export async function GET() {
   try {
     const client = await dbConnect();
     const rows = await client!.sql`SELECT * FROM entries`;
-    return NextResponse.json({rows}, { status: 200 });
+    const res = rows.rows;
+    return NextResponse.json({res}, { status: 200 });
   }catch (err) {
-    console.error('Error in GET: ', err);
-    return NextResponse.json({ message: "Hello World" }, { status: 500 });
+    return NextResponse.json({ message: 'Error in GET: ', err }, { status: 500 });
   }
 }
 
@@ -54,9 +54,22 @@ export async function POST(request: Request) {
       ON CONFLICT (id) DO NOTHING;
       `;
       return NextResponse.json({}, { status: 200 });
-
     }
   } catch(err) {
-    console.error('Error in POST: ', err);
+    return NextResponse.json({ message: 'Error in POST: ', err }, { status: 500 });
+  }
+}
+
+export async function DELETE(req: Request) {
+  const body = await req.json();
+  try {
+    const client = await dbConnect();
+    await client!.sql`
+    DELETE FROM entries WHERE id=${body.id};
+    `;
+    return NextResponse.json({message: 'Success'}, { status: 200 });
+  } catch(err) {
+    return NextResponse.json({ message: 'Error in DELETE: ', err }, { status: 500 });
+
   }
 }

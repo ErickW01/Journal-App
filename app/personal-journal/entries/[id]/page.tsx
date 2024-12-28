@@ -19,7 +19,8 @@ const Page = () => {
             return;
 
         handleData()
-    }, [id])
+    }, [id]);
+
 
     return(
         <section className="bg-white dark:bg-gray-900">
